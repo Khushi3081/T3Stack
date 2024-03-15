@@ -1,0 +1,25 @@
+mutation InsertUsers($objects: user_data_insert_input!) {
+  insert_user_data_one(object: $objects) {
+    id
+  }
+}
+mutation InsertUserData($object: user_data_insert_input!) {
+  insert_user_data_one(object: $object) {
+    id
+  }
+}
+
+query MyQuery {
+  user_data {
+    full_name
+    email
+  }
+}
+
+query GetUserData($full_name: String_comparison_exp!) {
+  user_data(where: {full_name: $full_name}) {
+    email
+    full_name
+    password
+  }
+}
